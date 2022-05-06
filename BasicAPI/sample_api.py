@@ -16,3 +16,16 @@ def test_api():
             print("Information Matched!!!")
         else:
             print("Information not matched")
+
+
+def test_api_post():
+    post_data = {'name': 'Allen', 'job': 'QA'}
+
+    url = requests.post("https://reqres.in/api/users", data=post_data)
+    
+    post_data = url.json()
+    assert url.status_code == 201
+    assert post_data['name'] == 'Allen'
+    assert post_data['job'] == 'QA'
+
+
