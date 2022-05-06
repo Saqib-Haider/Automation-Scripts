@@ -29,3 +29,10 @@ def test_api_post():
     assert post_data['job'] == 'QA'
 
 
+def test_api_delete():
+    delete_data = {'first_name': 'Janet', 'last_name': 'Weaver'}
+    url = requests.delete("https://reqres.in/api/users/2", data=delete_data)
+
+    assert url.status_code == 204
+
+
